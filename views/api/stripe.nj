@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2>Stripe API</h2>
 </div>
@@ -113,3 +114,4 @@ extends ../layout
   metadata: {},
   statement_description: null }</pre></div>
 </div>
+{% endblock %}

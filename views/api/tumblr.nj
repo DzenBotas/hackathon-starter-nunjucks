@@ -1,3 +1,6 @@
+{% extends '../layout.nj' %}
+
+{% block content %}
 <!-- TODO: Fix unsupported jade extends -->
 extends ../layout
 <div class="page-header">
@@ -11,3 +14,4 @@ extends ../layout
 <div class="btn btn-xs btn-primary-outline"><i class="fa fa-file-text-o"></i>{{blog.posts}} posts</div>
 <h4>Latest Photo Post</h4>
 {{#each photoset as |photo|}}<img src="{{''}}{{(photo.original_size.url)}}{{''}}" class="item">{{/each}}
+{% endblock %}

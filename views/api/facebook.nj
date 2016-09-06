@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i style="color: #335397" class="fa fa-facebook-square"></i>Facebook API</h2>
 </div>
@@ -17,9 +18,10 @@ extends ../layout
 <h6>Timezone: {{me.timezone}}</h6>
 <h3><i class="fa fa-group"></i> My Friends</h3>
 <div class="row">
-  {{#each friends as |friend|}}
+  {% for friend in friends %}
     <div class="col-xs-3 col-md-2">
-      <a href="http://facebook.com/{{(friend.id)}}{{''}}" class="thumbnail"><img src="https://graph.facebook.com/{{(friend.id)}}/picture?width=150&height=150"></a>
+      <a href="http://facebook.com/{{friend.id}}" class="thumbnail"><img src="https://graph.facebook.com/{{friend.id}}/picture?width=150&height=150"></a>
     </div>
-  {{/each}}
+  {% endfor %}
 </div>
+{% endblock %}

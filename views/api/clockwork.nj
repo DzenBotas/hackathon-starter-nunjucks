@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i class="fa fa-phone"></i>Clockwork SMS API</h2>
 </div>
@@ -16,3 +17,5 @@ extends ../layout
     </form>
   </div>
 </div>
+
+{% endblock %}

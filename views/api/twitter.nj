@@ -1,3 +1,6 @@
+{% extends '../layout.nj' %}
+
+{% block content %}
 <!-- TODO: Fix unsupported jade extends -->
 extends ../layout
 <div class="page-header">
@@ -24,3 +27,4 @@ extends ../layout
     </li>
   {{/each}}
 </ul>
+{% endblock %}

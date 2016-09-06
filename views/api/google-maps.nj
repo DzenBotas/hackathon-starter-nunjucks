@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <style>
   #map {
     width: 100%;
@@ -128,3 +129,5 @@ extends ../layout
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJUqqC9Lg3-ayYuWa1VgDk5hiHiHIe30A&callback=initMap"></script>
+
+{% endblock %}

@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i style="color: #db1302" class="fa fa-play-circle-o"></i>Last.fm API</h2>
 </div>
@@ -9,20 +10,21 @@ extends ../layout
 </div>
 <h3>{{artist.name}}</h3><img src="{{''}}{{(artist.image)}}{{''}}" class="thumbnail">
 <h3>Tags</h3>
-{{#each artist.tags as |tag|}}<span class="label label-primary"><i class="fa fa-tag"></i>{{tag.name}}</span>&nbsp;{{/each}}
+{% for tag in artist.tags %}<span class="label label-primary"><i class="fa fa-tag"></i>{{tag.name}}</span>&nbsp;{% endfor %}
 <h3>Biography</h3>
 <p>{{artist.bio}}</p>
 <h3>Top Albums</h3>
-{{#each artist.topAlbums as |album|}}<img src="{{''}}{{(album.image.slice(-1)[0]["#text"])}}{{''}}" width="{{150}}" height="{{150}}">&nbsp;{{/each}}
+{% for album in artist.topAlbums %}<img src="{{album.image.slice(-1)[0]["#text"]}}" width="{{150}}" height="{{150}}">&nbsp;{% endfor %}
 <h3>Top Tracks</h3>
 <ol>
-  {{#each artist.topTracks as |track|}}
-    <li><a href="{{''}}{{(track.url)}}{{''}}">{{track.name}}</a></li>
-  {{/each}}
+  {% for track in artist.topTracks %}
+    <li><a href="{{track.url}}">{{track.name}}</a></li>
+  {% endfor %}
 </ol>
 <h3>Similar Artists</h3>
 <ul class="list-unstyled list-inline">
-  {{#each artist.similar as |similarArtist|}}
-    <li><a href="{{''}}{{(similarArtist.url)}}{{''}}">{{similarArtist.name}}</a></li>
-  {{/each}}
+  {% for similarArtist in artist.similar %}
+    <li><a href="{{similarArtist.url}}">{{similarArtist.name}}</a></li>
+  {% endfor %}
 </ul>
+{% endblock %}

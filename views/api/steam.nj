@@ -1,3 +1,6 @@
+{% extends '../layout.nj' %}
+
+{% block content %}
 <!-- TODO: Fix unsupported jade extends -->
 extends ../layout
 <div class="page-header">
@@ -34,3 +37,4 @@ extends ../layout
 {{#each ownedGames as |game|}}
   <a href="http://store.steampowered.com/app/{{(game.appid)}}/"><img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{(game.appid)}}/{{(game.img_logo_url)}}.jpg" width="{{92}}" class="thumbnail"></a>
 {{/each}}
+{% endblock %}

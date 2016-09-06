@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <h2>API Examples</h2>
 <hr>
 <div class="row">
@@ -151,3 +152,4 @@ extends ../layout
     </a>
   </div>
 </div>
+{% endblock %}

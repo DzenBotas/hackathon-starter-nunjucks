@@ -1,4 +1,4 @@
-{% extends 'layout.nj' %}
+{% extends '../layout.nj' %}
 
 {% block content %}
 <div class="page-header">

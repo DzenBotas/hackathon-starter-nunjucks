@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i style="color: #517fa4" class="fa fa-instagram"></i>Instagram API</h2>
 </div>
@@ -18,20 +19,20 @@ extends ../layout
     </tr>
   </thead>
   <tbody>
-    {{#each usernames as |user|}}
+    {% for user in usernames %}
       <tr>
-        <td><img src="{{''}}{{(user.profile_picture)}}{{''}}" width="75" height="75"></td>
+        <td><img src="{{user.profile_picture}}" width="75" height="75"></td>
         <td>{{user.username}}</td>
         <td>{{user.full_name}}</td>
         <td>{{user.bio}}</td>
       </tr>
-    {{/each}}
+    {% endfor %}
   </tbody>
 </table>
 <hr>
 <p class="lead">User Search for ID<strong> 175948269</strong></p>
 <div class="media">
-  <a href="http://instagram.com/{{(userById.username)}}{{''}}" class="pull-left"><img src="{{''}}{{(userById.profile_picture)}}{{''}}" width="110" height="110" class="thumbnail"></a>
+  <a href="http://instagram.com/{{userById.username}}" class="pull-left"><img src="{{userById.profile_picture}}" width="110" height="110" class="thumbnail"></a>
   <div class="media-body">
     <h4>{{userById.full_name}}</h4>
     <p>{{userById.bio}}</p>
@@ -40,18 +41,19 @@ extends ../layout
 <hr>
 <p class="lead"><strong>Popular Images</strong> on Instagram</p>
 <div class="row">
-  {{#each popularImages as |image|}}
+  {% for image in popularImages %}
     <div class="col-xs-3">
-      <a href="{{''}}{{(image.link)}}{{''}}" class="thumbnail"><img src="{{''}}{{(image.images.standard_resolution.url)}}{{''}}" height="320px"></a>
+      <a href="{{image.link}}" class="thumbnail"><img src="{{image.images.standard_resolution.url}}" height="320px"></a>
     </div>
-  {{/each}}
+  {% endfor %}
 </div>
 <hr>
 <p class="lead">My Recent<strong> Media</strong></p>
 <div class="row">
-  {{#each myRecentMedia as |image|}}
+  {% for image in myRecentMedia %}
     <div class="col-xs-3">
-      <a href="{{''}}{{(image.link)}}{{''}}" class="thumbnail"><img src="{{''}}{{(image.images.standard_resolution.url)}}{{''}}" height="320px"></a>
+      <a href="{{image.link}}" class="thumbnail"><img src="{{image.images.standard_resolution.url}}" height="320px"></a>
     </div>
-  {{/each}}
+  {% endfor %}
 </div>
+{% endblock %}

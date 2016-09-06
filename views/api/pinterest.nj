@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i style="color: #cb2027" class="fa fa-pinterest"></i>Pinterest API</h2>
 </div>
@@ -15,3 +16,4 @@ extends ../layout
     <div class="col-sm-6"><label>Link</label><input name="link" placeholder="The URL the Pin will link to when you click through." class="form-control"></div>
     <div class="col-sm-6"><label>Image URL</label><input name="image_url" placeholder="The link to the image that you want to Pin." class="form-control"></div>
   </div><button type="submit" class="btn btn-primary"><i class="fa fa-pinterest"></i> Pin It</button></form>
+{% endblock %}

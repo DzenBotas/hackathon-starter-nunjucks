@@ -1,5 +1,6 @@
-<!-- TODO: Fix unsupported jade extends -->
-extends ../layout
+{% extends '../layout.nj' %}
+
+{% block content %}
 <div class="page-header">
   <h2><i class="fa fa-building-o"></i>New York Times API</h2>
 </div>
@@ -30,3 +31,4 @@ extends ../layout
     {{/each}}
   </tbody>
 </table>
+{% endblock %}
